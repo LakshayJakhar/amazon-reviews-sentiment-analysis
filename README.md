@@ -48,20 +48,17 @@ Accuracy, Precision, Recall, F1-score
 Top positive/negative feature words
 
 📊 Results
+Performance Table
+
 Confusion Matrix (Logistic Regression – Test Set)
 
-Model Performance
-Model	Accuracy	Recall (Negative)	F1 (Negative)
-Baseline (dummy)	74%	0.15	0.15
-Naive Bayes	93%	0.59	0.73
-Logistic Regression ⭐	95%	0.91	0.84
+Model Insights
 
-Logistic Regression significantly outperformed Naive Bayes and baseline.
+Logistic Regression achieved 95% accuracy with 91% recall for negatives, making it the best model.
 
-Strong recall for negatives (91%) → critical for detecting unhappy customers.
+Naive Bayes reached 93% accuracy but weaker negative recall (59%).
 
-![image alt](https://github.com/LakshayJakhar/amazon-reviews-sentiment-analysis/blob/7f2d472e8193ad5688ba15dd743f75ec13da1e92/images/Table.png)
-
+Baseline only managed 74% accuracy and failed on negatives.
 
 Top Features
 
@@ -69,7 +66,7 @@ Positive words: delicious, excellent, perfect, tasty, amazing
 
 Negative words: terrible, disappointed, waste, bland, awful
 
-(Add feature importance bar chart here)
+(Feature importance bar chart can be added here)
 
 📌 Business Value
 
@@ -86,6 +83,3 @@ Extend to multi-class classification (positive / neutral / negative).
 Experiment with Linear SVM and transformer models (BERT).
 
 Build a Streamlit app for real-time sentiment prediction.
-
-
-
