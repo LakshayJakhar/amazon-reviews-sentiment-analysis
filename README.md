@@ -57,8 +57,6 @@ This project automates sentiment classification of Amazon reviews, helping busin
 - **Positive words:** *delicious, excellent, perfect, tasty, amazing*  
 - **Negative words:** *terrible, disappointed, waste, bland, awful*  
 
-*(Feature importance bar chart can be added here)*  
-
 ---
 
 ## 📌 Business Value  
