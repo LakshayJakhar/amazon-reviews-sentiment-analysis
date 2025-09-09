@@ -1,94 +1,91 @@
-Amazon Reviews Sentiment Analysis 📊
+📊 Amazon Reviews Sentiment Analysis (NLP Project)
 
-End-to-end NLP project using the Amazon Fine Food Reviews dataset (~568k rows).
-Goal: classify reviews as positive or negative using TF-IDF + Machine Learning models.
+📌 Problem Statement
+Customer reviews play a crucial role in shaping brand reputation and sales. Manually analyzing thousands of reviews is time-consuming and inconsistent.
+This project automates sentiment classification of Amazon reviews, helping businesses quickly identify negative feedback and improve customer satisfaction.
 
 📂 Dataset
 
-Source: Amazon Fine Food Reviews on Kaggle
+Source: Amazon Fine Food Reviews (Kaggle)
 
-Fields used:
+Rows: ~568,000 reviews
 
-Score (1–5 stars) → mapped to sentiment:
+Target Variable: Sentiment (Positive / Negative)
 
-1–2 = Negative
+Features Used:
 
-3 = Neutral (dropped for binary classification)
-
-4–5 = Positive
+Score (1–5 stars, mapped to sentiment: 1–2 = negative, 3 = neutral (dropped), 4–5 = positive)
 
 Text (review content)
 
-🔧 Process
+🛠 Methodology
+Data Cleaning
 
-Data Preparation
+Dropped neutral reviews for binary classification (positive vs negative).
 
-Dropped missing/blank reviews
+Removed missing/blank values.
 
-Converted scores → sentiment labels
-
-Removed neutral reviews for binary classification
-
-Text Cleaning
-
-Lowercased
-
-Removed HTML tags, URLs, punctuation, and extra spaces
+Cleaned text: lowercased, removed HTML, URLs, punctuation, and extra spaces.
 
 Feature Engineering
 
-TF-IDF vectorization (unigrams + bigrams, min_df=5, max_df=0.9, sublinear TF, stopwords removed)
+TF-IDF vectorization (unigrams + bigrams, min_df=5, max_df=0.9, sublinear TF, stopwords removed).
 
 Modeling
 
-Baseline: DummyClassifier (stratified random guessing)
+Baseline: Dummy Classifier (random guess based on class frequency).
 
-Multinomial Naive Bayes
+Multinomial Naive Bayes: Classic text classifier.
 
-Logistic Regression (final best model)
+Logistic Regression: Linear model with class balancing.
 
 Evaluation
 
-Accuracy, Precision, Recall, F1-score
-
 Confusion Matrix
 
-Top features visualization (positive vs negative words)
+Accuracy, Precision, Recall, F1-score
+
+Top positive/negative feature words
 
 📊 Results
+Confusion Matrix (Logistic Regression – Test Set)
+
+Model Performance
 Model	Accuracy	Recall (Negative)	F1 (Negative)
 Baseline (dummy)	74%	0.15	0.15
 Naive Bayes	93%	0.59	0.73
 Logistic Regression ⭐	95%	0.91	0.84
 
-Logistic Regression clearly outperformed Naive Bayes and baseline.
+Logistic Regression significantly outperformed Naive Bayes and baseline.
 
-Strong recall for negatives (91%) → critical for catching unhappy customers.
-
-📉 Visuals
-Confusion Matrix (Logistic Regression – Test Set)
+Strong recall for negatives (91%) → critical for detecting unhappy customers.
 
 ![image alt](https://github.com/LakshayJakhar/amazon-reviews-sentiment-analysis/blob/7f2d472e8193ad5688ba15dd743f75ec13da1e92/images/Table.png)
 
+
 Top Features
 
-Positive words → "delicious", "excellent", "perfect"
-Negative words → "terrible", "disappointed", "waste"
+Positive words: delicious, excellent, perfect, tasty, amazing
 
-💡 Business Value
+Negative words: terrible, disappointed, waste, bland, awful
 
-This model can:
+(Add feature importance bar chart here)
 
-Flag negative customer feedback early (91% recall).
+📌 Business Value
 
-Help businesses monitor satisfaction and prevent churn.
+Flags negative customer reviews early → businesses can act before churn or reputational damage.
 
-Provide interpretable insights into what words drive sentiment.
+Provides interpretable insights into what words drive sentiment.
 
-🚀 Future Improvements
+Helps product and customer support teams focus on real pain points.
 
-Add multi-class classification (positive, neutral, negative).
+🚀 Future Work
 
-Try Linear SVM or transformer models (BERT).
+Extend to multi-class classification (positive / neutral / negative).
 
-Deploy a simple Streamlit app for real-time sentiment analysis.
+Experiment with Linear SVM and transformer models (BERT).
+
+Build a Streamlit app for real-time sentiment prediction.
+
+
+
